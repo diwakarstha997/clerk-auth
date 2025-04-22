@@ -1,10 +1,14 @@
+import { Route, Routes } from 'react-router'
 import './App.css'
+import Home from './components/Home/home'
 
 function App() {
 
   return (
     <>
-      <h1>User Role Management</h1>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+      </Routes>
     </>
   )
 }
