@@ -13,8 +13,20 @@ const Home = () => {
 
     const displayToken = async() => {
         const token = await getToken();
-        const fetchedUserData = await getUser(token); 
-        setUserData(fetchedUserData);
+        const fetchedUserData = await getUser(token);  
+        
+        setUserData({
+           id: fetchedUserData.user.id,
+            imageUrl: fetchedUserData.user.imageUrl,
+            firstName: fetchedUserData.user.firstName,
+            lastName: fetchedUserData.user.lastName,
+            emailAdress: {
+                id: fetchedUserData.user.emailAddresses[0].id,
+                email: fetchedUserData.user.emailAddresses[0].emailAddress,
+                verificationStatus: fetchedUserData.user.emailAddresses[0].verification.status,
+                linkedTo: fetchedUserData.user.emailAddresses[0].linkedTo[0].type
+            }
+        });
     }
 
     useEffect(() => {
