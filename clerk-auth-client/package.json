@@ -1,5 +1,5 @@
 {
-  "name": "urm-client",
+  "name": "clerk-auth-client",
   "private": true,
   "version": "0.0.0",
   "type": "module",
