@@ -1,15 +1,20 @@
 import { SignedIn, SignedOut, SignInButton, useAuth, UserButton, useUser } from "@clerk/clerk-react";
 import "./home.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getUser } from "../../axios/userAxios";
+import UserPreview from "../Protected/UserPreview";
 
 const Home = () => {
+
+    const [userData, setUserData] = useState({});
     const { getToken } = useAuth();
     const { user } = useUser();
 
+
     const displayToken = async() => {
         const token = await getToken();
-        const userData = await getUser(token); 
+        const fetchedUserData = await getUser(token); 
+        setUserData(fetchedUserData);
     }
 
     useEffect(() => {
@@ -34,6 +39,7 @@ const Home = () => {
                         className="btn-primary"
                     />
                 </div>
+                <UserPreview userData={userData}/>
             </SignedIn>
         </>
     )

@@ -13,7 +13,7 @@
 }
 
 .flex-container {
-    height: 100vh;
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
