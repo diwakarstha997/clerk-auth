@@ -1,13 +1,15 @@
 import { SignedIn, SignedOut, SignInButton, useAuth, UserButton, useUser } from "@clerk/clerk-react";
 import "./home.css";
 import { useEffect } from "react";
+import { getUser } from "../../axios/userAxios";
 
 const Home = () => {
     const { getToken } = useAuth();
     const { user } = useUser();
 
     const displayToken = async() => {
-        console.log(`Bearer ${await getToken()}`);  
+        const token = await getToken();
+        const userData = await getUser(token); 
     }
 
     useEffect(() => {
