@@ -1,11 +1,11 @@
-import { SignedOut, SignIn } from "@clerk/clerk-react";
+import { SignedOut, SignUp } from "@clerk/clerk-react";
 
-const SignInPage = () => {
+const SignUpPage = () => {
     return(
         <>
             <SignedOut>
                 <div className="d-flex justify-content-center align-items-center vh-100">
-                    <SignIn
+                    <SignUp
                     />
                 </div>
             </SignedOut>
@@ -13,4 +13,4 @@ const SignInPage = () => {
     )
 }
 
-export default SignInPage;
+export default SignUpPage;
