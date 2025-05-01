@@ -8,7 +8,7 @@ const Home = () => {
         <div className="d-flex flex-column justify-content-center align-items-center vh-100">
             <h1>Clerk Authentication System</h1>
             <SignedOut>
-                <Link to="" className="btn btn-dark rounded-5">
+                <Link to="/auth/login" className="btn btn-dark rounded-5">
                     Get Started
                 </Link>
             </SignedOut>

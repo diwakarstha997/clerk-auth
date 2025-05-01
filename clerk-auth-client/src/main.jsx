@@ -12,13 +12,19 @@ import './index.css'
 // Import Publishable Key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
+// Import clerk sign in related environment
+const SIGN_IN_URL = import.meta.env.VITE_CLERK_SIGN_IN_URL
+
 if (!PUBLISHABLE_KEY) {
   throw new Error("Missing Publishable Key")
 }
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
+    <ClerkProvider 
+      publishableKey={PUBLISHABLE_KEY} 
+      signInUrl={SIGN_IN_URL}
+      afterSignOutUrl="/">
       <BrowserRouter>
         <App />
       </BrowserRouter>
