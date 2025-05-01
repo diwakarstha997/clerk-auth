@@ -2,9 +2,10 @@ import { SignedIn, SignedOut, SignInButton, useAuth, UserButton, useUser } from 
 import "./home.css";
 import { useEffect, useState } from "react";
 import { getUser } from "../../axios/userAxios";
-import UserPreview from "../Protected/UserPreview";
+import UserPreview from "../../components/Protected/UserPreview";
+import { useNavigate } from "react-router";
 
-const Home = () => {
+const DashboardPage = () => {
 
     const [userData, setUserData] = useState({});
     const { getToken } = useAuth();
@@ -29,26 +30,24 @@ const Home = () => {
         });
     }
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         if(user){
             displayToken();
+        }
+        if(!user){
+            navigate("/");
         }
     },[user])
 
 
     return(
         <>
-            <SignedOut>
-                <div className="flex-container">
-                    <SignInButton 
-                        className="btn-primary"
-                    />
-                </div>
-            </SignedOut>
+        <h1>Clerk Authentication System</h1>
             <SignedIn>
-                <div className="flex-container">
+                <div>
                     <UserButton 
-                        className="btn-primary"
                     />
                 </div>
                 <UserPreview userData={userData}/>
@@ -57,4 +56,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default DashboardPage;
